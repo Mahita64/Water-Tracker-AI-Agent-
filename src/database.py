@@ -1,7 +1,9 @@
 import sqlite3
 from datetime import datetime
+import os 
 
-DATABASE = "water_tracker.db"
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATABASE = os.path.join(PROJECT_ROOT, "water_tracker.db")
 
 def create_table():
     conn = sqlite3.connect(DATABASE)
@@ -29,23 +31,6 @@ def log_intake(user_id, intake_ml):
     date = datetime.today().strftime("%Y-%m-%d")
     time = datetime.now().strftime("%H:%M:%S")
 
-    # cursor.execute("""
-    #     SELECT intake_ml FROM water_intake WHERE user_id = ? AND date = ?
-    # """, (user_id, date))
-
-    # res = cursor.fetchone()
-
-    # if res:
-    #     exist_amount = res[0]
-    #     new = exist_amount + intake_ml
-
-    #     cursor.execute("""
-    #         UPDATE water_intake
-    #         SET intake_ml = ?
-    #         WHERE user_id = ? AND date = ?
-    #     """, (new, user_id, date))
-
-    # else:
     cursor.execute("""
         INSERT INTO water_intake (user_id, intake_ml, date, time) VALUES(?, ?, ?, ?)
     """, (user_id, intake_ml, date, time))
