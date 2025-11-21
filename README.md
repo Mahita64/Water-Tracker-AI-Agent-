@@ -1,6 +1,6 @@
 
 # AI Water Tracker System
-
+AI Water Tracker so now you finally drink enough water.
 
 ## 🖥️ Using/Tech Stack:
 Agentic AI, FastAPI, Uvicorn, SQLite, Google Gemini, Streamlit, Python
