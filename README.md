@@ -39,7 +39,7 @@ Leave this terminal open and open a new terminal window for rest of the steps.
 ## 🍄 (Optional) Insert Dummy Hydration Data
 Populate your database with random sample entries for the past 7 days:
 ```bash
-python src/dummy_info.py.py
+python src/dummy_info.py
 ```
 
 
